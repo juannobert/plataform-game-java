@@ -127,13 +127,18 @@ public class GamePanel extends JPanel{
 		}
 	}
 	
+	//Cuida somente da parte lógica
+	public void updateGame() {
+		updateAnimationTick();
+		setAnimation();
+		updatePos();
+	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		updateAnimationTick();
-		setAnimation();
-		updatePos();
+		
 		//Pegando imagem na coluna 8 e linha 1
 		//subImg = img.getSubimage(1*64, 8*40, 64, 40);
 		g.drawImage(animations[playerAction][aniIndex], (int)xDelta, (int) yDelta,128,80, null);
