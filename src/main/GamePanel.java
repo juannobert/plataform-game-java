@@ -2,18 +2,14 @@ package main;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import inputs.KeyBoardInputs;
 import inputs.MouseInputs;
 
-import static utils.Constants.PlayerConstants.*; 
-import static utils.Constants.Directions.*;
+import static main.Game.GAME_WIDTH;
+import static main.Game.GAME_HEIGHT;;
 
 public class GamePanel extends JPanel{
 
@@ -36,10 +32,10 @@ public class GamePanel extends JPanel{
 	
 	
 	private void setPanelSize() {
-		Dimension dimension = new Dimension(1280,800);
+		Dimension dimension = new Dimension(GAME_WIDTH,GAME_WIDTH);
 		setPreferredSize(dimension);
-		setMinimumSize(dimension);
-		setMaximumSize(dimension);
+		System.out.println("Size : " + GAME_WIDTH + " | " + GAME_HEIGHT);
+		
 	}		
 	
 	//Cuida somente da parte lógica
@@ -48,6 +44,7 @@ public class GamePanel extends JPanel{
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
 		game.render(g);
 		
 	}
